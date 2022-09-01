@@ -25,8 +25,10 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build:css": "postcss src/assets/tailwind.css -o src/index.css",
+    "watch:css": "postcss src/assets/tailwind.css -o src/index.css",
+    "start": "npm run watch:css & react-scripts start",
+    "build": "npm run build:css react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -50,7 +52,11 @@
   },
   "devDependencies": {
     "autoprefixer": "^10.4.8",
+    "babel-plugin-macros": "^3.1.0",
     "postcss": "^8.4.16",
-    "tailwindcss": "^3.1.8"
+    "postcss-cli": "^10.0.0",
+    "tailwind-styled-components": "^2.1.8",
+    "tailwindcss": "^3.1.8",
+    "twin.macro": "^2.8.2"
   }
 }
