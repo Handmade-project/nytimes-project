@@ -1,5 +1,6 @@
 import React,{useState,useRef,useCallback} from 'react';
 import styled from 'styled-components';
+import tw from 'twin.macro';
 import useNewsSearch from './../feature/useNewsSearch';
 import Header from './../view/header';
 import Footer from './../view/footer';
