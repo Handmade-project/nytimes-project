@@ -1,10 +1,10 @@
-import React,{useState,useRef,useCallback} from 'react'
+import React,{useState,useRef,useCallback} from 'react';
 import styled from 'styled-components';
 import useNewsSearch from './../feature/useNewsSearch';
 import Header from './../view/header';
 import Footer from './../view/footer';
 import { useSelector, useDispatch } from 'react-redux';
-import { addcilp,deleteCilp} from './../store/store';
+import { addClip,deleteClip} from './../store/store';
 
 export default function Index() {
     const [query, setQuery]= useState('')
@@ -80,7 +80,6 @@ export default function Index() {
              
         }       
         }}>
-
         {clipData.indexOf(item.web_url)>=0?'unClip':'Clip'}
          </span>
          <a href={item.web_url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center px-3 py-1 mr-2 mb-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg">detail
