@@ -1,9 +1,11 @@
 import React,{useState,useRef,useCallback} from 'react'
+import styled from 'styled-components';
 import useNewsSearch from './../feature/useNewsSearch';
 import Header from './../view/header';
 import Footer from './../view/footer';
 import { useSelector, useDispatch } from 'react-redux';
-import { addClip,deleteClip} from './../store/store';
+import { addcilp,deleteCilp} from './../store/store';
+
 export default function Index() {
     const [query, setQuery]= useState('')
     const [pageNumber, setPageNumber] = useState(1)  
@@ -45,17 +47,15 @@ export default function Index() {
       <Header/>          
       <section>
       <label htmlFor="default-search" className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-gray-300">Search</label>
-      <div className="relative">   
-      <input onChange={handleSearch} placeholder='Search news...' className='block p-4 pl-10 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'></input>        
-      </div>
-
-      <details className="open:bg-white open:ring-1 open:ring-black/5 open:shadow-lg p-6 rounded-lg" open>
+      <Relative>   
+      <input onChange={handleSearch} placeholder="Search news.."/>       
+      <Details open focus>
       <summary className="text-sm leading-6 text-slate-900 dark:text-white font-semibold select-none">search list</summary>
        <div className="mt-3 text-sm leading-6 text-slate-600 dark:text-slate-400">
            {historyList.map((item, index) => ( <p key={index}>{item}</p> ))}
         </div>
-     </details>
-    
+     </Details>
+     </Relative>
         {news&&news.map((item,i) => (
           <div key={item._id}  className="bg-white shadow-lg p-6 rounded-lg ring-1">
           <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900" >{item.headline.main}</h5>        
@@ -80,6 +80,7 @@ export default function Index() {
              
         }       
         }}>
+
         {clipData.indexOf(item.web_url)>=0?'unClip':'Clip'}
          </span>
          <a href={item.web_url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center px-3 py-1 mr-2 mb-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg">detail
@@ -96,4 +97,20 @@ export default function Index() {
     )
 }
 
-
+const Relative = styled.div.attrs({
+  className: 'relative'
+})`
+  &{
+    input {
+      ${tw`block p-4 pl-10 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500`}
+      &:focus + details {
+        display: block;
+      }
+    }
+  }
+`
+const Details = styled.details.attrs({
+  className: 'box-keyword open:bg-white open:ring-1 open:ring-black/5 open:shadow-lg p-6 rounded-lg'
+})`
+  display: none;
+`
