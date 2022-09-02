@@ -16,16 +16,17 @@ const Div = styled.div`
 
 const Copy = styled.div`
   font-size: 1em;
-  margin-left: 1em;
+  margin: 0 auto;
   color: #97a2b5;
 `;
 
 function Footer() {
+  let getYear = new Date().getFullYear();
   return (
     <Div>
       <Copy>
-        Copyright 2022.&nbsp;
-        <a href="https://github.com/Handmade-project" target="_blank">
+        Copyright {getYear}.&nbsp;
+        <a href="https://github.com/Handmade-project" target="_blank" rel="noreferrer">
           <FontAwesomeIcon icon={faGithub} /> 3조 미니 프로젝트
         </a>{" "}
         All rights reserved.

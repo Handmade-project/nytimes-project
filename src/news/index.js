@@ -69,7 +69,7 @@ export default function Index() {
         bg-blue-700 rounded-lg 
         hover:bg-blue-800"
         onClick={()=>{
-          if(clipData.indexOf(item.web_url)>=0){
+          if(clipData.includes(item.web_url)){
             dispatch(deleteClip(item.web_url)) 
           }else{
            dispatch(addClip(
@@ -81,7 +81,7 @@ export default function Index() {
              ))            
         }       
         }}>
-        {clipData.indexOf(item.web_url)>=0?'unClip':'Clip'}
+        {clipData.includes(item.web_url)?'unClip':'Clip'}
          </span>
          <a href={item.web_url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center px-3 py-1 mr-2 mb-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg">detail
          </a>         
@@ -98,15 +98,15 @@ export default function Index() {
     )
 }
 
-const PageContainer = styled.div`
+export const PageContainer = styled.div`
   position: relative;
   min-height: 100vh;
 `
-const Section = styled.div`
-padding-bottom: 50px
+export const Section = styled.div`
+padding-bottom: 100px
 `
 
-const Relative = styled.div.attrs({
+export const Relative = styled.div.attrs({
   className: 'relative'
 })`
   &{
@@ -118,13 +118,13 @@ const Relative = styled.div.attrs({
     }
   }
 `
-const Details = styled.details.attrs({
+export const Details = styled.details.attrs({
   className: 'box-keyword open:bg-white open:ring-1 open:ring-black/5 open:shadow-lg p-6 rounded-lg'
 })`
   display: none;
 `
 
-const Spinner = styled.div`
+export const Spinner = styled.div`
   width: 50px;
   height: 50px;
   margin: 0 auto;

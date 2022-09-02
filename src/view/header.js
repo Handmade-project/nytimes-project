@@ -25,20 +25,21 @@ return (
 
   <div onClick={click}> 
   <button type="button" >
-  <FontAwesomeIcon icon={faBars} className="-mr-0.5 ml-0.5 h-0.5 w-0.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" fill="currentColor" aria-hidden="true">
-   <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+  <FontAwesomeIcon icon={faBars} className="-mr-0.5 ml-0.5 h-5 w-0.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" fill="currentColor" aria-hidden="true">
+   <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clipRule="evenodd" />
    </FontAwesomeIcon>   
    </button>
   </div>
   
   <div className="absolute right-0 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabIndex="-1">
       <div>
-      {visible ? (
+      {visible &&
+       (
       <nav>
-      <a className="text-gray-700 hover:text-sky-400 block px-4 py-2 text-sm" role="menuitem" tabIndex="-1" id="menu-item-1"><MoveHome/></a>
-      <a className="text-gray-700 hover:text-sky-400 block px-4 py-2 text-sm" role="menuitem" tabIndex="-1" id="menu-item-1"><MoveClip/></a>
+      <span className="text-gray-700 hover:text-sky-400 block px-4 py-2 text-sm" role="menuitem" tabIndex="-1" id="menu-item-1"><MoveHome/></span>
+      <span className="text-gray-700 hover:text-sky-400 block px-4 py-2 text-sm" role="menuitem" tabIndex="-1" id="menu-item-1"><MoveClip/></span>
       </nav>
-      ): null }
+      ) }
     </div>
   </div>
 
