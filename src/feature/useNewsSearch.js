@@ -14,8 +14,7 @@ export default function useNewsSearch(query, pageNumber) {
     // You can await here
     try{
     const res= await dispatch(axiosNewsbyWords({query,pageNumber,API_KEY}))    
-    const dispatchData=await res.payload.data
-    console.log(dispatchData)   
+    const dispatchData=await res.payload.data 
     setNews(prev => {return [...new Set([...prev, ...dispatchData.response.docs.map(news => news)])]})
     setHasMore(dispatchData.response.docs.length > 0)
     setLoading(false)
